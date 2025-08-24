@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube Clone — With Watch Page</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="left">
+      <button id="menuBtn" class="icon-btn">☰</button>
+      <span class="brand">YouTube Clone</span>
+    </div>
+    <div class="center">
+      <form id="searchForm" class="search">
+        <input id="searchInput" type="search" placeholder="Search" />
+        <button class="icon-btn">🔍</button>
+      </form>
+    </div>
+    <div class="right">
+      <button id="themeBtn" class="icon-btn">☀️/🌙</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <aside id="sidebar" class="sidebar">
+      <nav>
+        <a href="#">🏠 Home</a>
+        <a href="#">🔥 Trending</a>
+        <a href="#">🎬 Shorts</a>
+        <a href="#">📚 Library</a>
+      </nav>
+    </aside>
+
+    <section id="grid" class="grid" aria-live="polite">
+      <!-- Videos injected here -->
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

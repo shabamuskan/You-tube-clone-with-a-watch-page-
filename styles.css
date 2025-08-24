@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: #f1f1f1;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #181818;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  color: #f1f1f1;
+  font-size: 18px;
+  cursor: pointer;
+}
+.search input {
+  padding: 6px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+.page {
+  display: flex;
+}
+.sidebar {
+  width: 200px;
+  background: #181818;
+  min-height: 100vh;
+  padding: 10px;
+}
+.sidebar nav a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #f1f1f1;
+}
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+.card {
+  background: #202020;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.thumb {
+  width: 100%;
+  display: block;
+}
+.meta {
+  padding: 10px;
+}
+.title {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.byline, .stats {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* watch page helpers */
+.container {
+  max-width: 1080px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+.tip {
+  background: #2a2a2a;
+  color: #ddd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+a.brand, .brand {
+  color: #f1f1f1;
+  text-decoration: none;
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch Video</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="brand">⬅ Back</a>
+    <span>Now Playing</span>
+  </header>
+
+  <main class="container">
+    <div id="tip" class="tip" style="display:none;">
+      Opened directly? No problem — showing a demo video. To see your selected card, go back to the home page and click a video.
+    </div>
+
+    <div id="player">
+      <img id="videoThumb" src="" alt="Video thumbnail" style="width:100%; max-width:900px; border-radius:8px; display:block;" />
+      <h1 id="videoTitle" style="margin:12px 0 6px;"></h1>
+      <p id="videoChannel" style="margin:0 0 6px; color:#aaa;"></p>
+      <p id="videoStats" style="margin:0 0 20px; color:#aaa;"></p>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+    const channel = params.get('channel');
+    const stats = params.get('stats');
+    const thumb = params.get('thumb');
+
+    const titleEl = document.getElementById('videoTitle');
+    const channelEl = document.getElementById('videoChannel');
+    const statsEl = document.getElementById('videoStats');
+    const thumbEl = document.getElementById('videoThumb');
+    const tipEl = document.getElementById('tip');
+
+    if (!title || !channel || !stats || !thumb) {
+      // Fallback demo content if user opened watch.html directly
+      tipEl.style.display = 'block';
+      const demo = {
+        title: 'Sample: Flexbox in 10 Minutes',
+        channel: 'UI Lab',
+        stats: '412K views • 3 days ago',
+        thumb: 'https://picsum.photos/seed/watchdefault/900/506'
+      };
+      titleEl.textContent = demo.title;
+      channelEl.textContent = demo.channel;
+      statsEl.textContent = demo.stats;
+      thumbEl.src = demo.thumb;
+      // also update URL so refresh keeps content
+      const u = new URL(window.location);
+      u.searchParams.set('title', demo.title);
+      u.searchParams.set('channel', demo.channel);
+      u.searchParams.set('stats', demo.stats);
+      u.searchParams.set('thumb', demo.thumb);
+      window.history.replaceState({}, '', u);
+    } else {
+      titleEl.textContent = title;
+      channelEl.textContent = channel;
+      statsEl.textContent = stats;
+      thumbEl.src = thumb;
+    }
+
+    // fallback if image fails
+    thumbEl.onerror = () => {
+      thumbEl.onerror = null;
+      thumbEl.src = 'https://placehold.co/900x506?text=Video';
+    };
+  </script>
+</body>
+</html>
